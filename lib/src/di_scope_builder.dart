@@ -1,21 +1,30 @@
 part of 'di_module/base_di_module.dart';
 
-/// A widget for initializing an instance of [BaseDiModule] and managing its lifecycle.
+/// A widget for initializing an instance of [BaseDiModule]
+/// and managing its lifecycle.
 ///
-/// [DiScopeBuilder] is responsible for creating and managing a [BaseDiModule] instance
-/// within the widget tree. It supports both synchronous and asynchronous modules and provides
+/// [DiScopeBuilder] is responsible for creating
+/// and managing a [BaseDiModule] instance
+/// within the widget tree. It supports both synchronous
+/// and asynchronous modules and provides
 /// the module to its children via the [ChildBuilder].
 ///
-/// It automatically handles scope management, including initializing, updating, and disposing
-/// the module as needed. This ensures that the correct DI scope is available throughout the
+/// It automatically handles scope management,
+/// including initializing, updating, and disposing
+/// the module as needed. This ensures
+/// that the correct DI scope is available throughout the
 /// widget tree.
 ///
-/// - [createModule]: A factory function used to create an instance of the module.
+/// - [createModule]: A factory function used to create
+/// an instance of the module.
 ///    if null, used [EmptyDiModule] to access parent [Scope]
-/// - [builder]: A callback that builds the widget tree using the context and the provided module.
-/// - [initializationPlaceholder]: A widget that is shown while the module is initializing (e.g., for async modules).
+/// - [builder]: A callback that builds the widget tree using the context
+/// and the provided module.
+/// - [initializationPlaceholder]: A widget that is shown
+/// while the module is initializing (e.g., for async modules).
 ///
-/// [initializationPlaceholder] is used specifically when dealing with asynchronous modules.
+/// [initializationPlaceholder] is used specifically
+/// when dealing with asynchronous modules.
 class DiScopeBuilder extends StatefulWidget {
   const DiScopeBuilder({
     this.createModule,
@@ -27,17 +36,20 @@ class DiScopeBuilder extends StatefulWidget {
   /// A function that creates the DI module instance of type [BaseDiModule].
   final CreateModule<BaseDiModule>? createModule;
 
-  /// A builder function that takes the current [BuildContext] and the provided [Scope] (the module) to build the UI.
+  /// A builder function that takes the current [BuildContext]
+  /// and the provided [Scope] (the module) to build the UI.
   final ChildBuilder builder;
 
-  /// A widget to display while the module is being initialized, typically for asynchronous modules.
+  /// A widget to display while the module is being initialized,
+  /// typically for asynchronous modules.
   final Widget? initializationPlaceholder;
 
   @override
   State<StatefulWidget> createState() => DiScopeBuilderState();
 }
 
-/// State class for [DiScopeBuilder], responsible for managing the module's lifecycle.
+/// State class for [DiScopeBuilder], responsible
+/// for managing the module's lifecycle.
 @visibleForTesting
 class DiScopeBuilderState extends State<DiScopeBuilder> {
   BaseDiModule? module;
@@ -79,7 +91,8 @@ class DiScopeBuilderState extends State<DiScopeBuilder> {
     super.dispose();
   }
 
-  /// Builds the widget tree with the module once it is initialized, or shows the initialization placeholder if not.
+  /// Builds the widget tree with the module once it is initialized,
+  /// or shows the initialization placeholder if not.
   @override
   Widget build(BuildContext context) {
     final module = this.module;
@@ -105,28 +118,3 @@ typedef ChildBuilder<T> = Widget Function(BuildContext context, Scope scope);
 
 /// Signature for the function used to create a [BaseDiModule] instance.
 typedef CreateModule<T> = T Function();
-
-/// Provides the parent [BaseDiModule] to the widget tree via [InheritedNotifier].
-///
-/// This is used internally by [DiScopeBuilder] to propagate the current DI module down
-/// the widget tree, ensuring that the module is available to child widgets.
-class _ParentModuleProvider extends InheritedNotifier<BaseDiModule> {
-  _ParentModuleProvider({
-    required super.key,
-    required this.module,
-    required super.child,
-  }) : super(notifier: module);
-
-  /// The current [BaseDiModule] being provided to the widget tree.
-  final BaseDiModule module;
-
-  /// Retrieves the current [BaseDiModule] from the widget tree.
-  ///
-  /// This method looks up the widget tree for an instance of [_ParentModuleProvider] and returns
-  /// the module that it is providing. Returns `null` if no module is found.
-  static BaseDiModule? of(BuildContext context) {
-    final result =
-        context.dependOnInheritedWidgetOfExactType<_ParentModuleProvider>();
-    return result?.notifier;
-  }
-}

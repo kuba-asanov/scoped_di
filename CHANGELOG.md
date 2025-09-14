@@ -1,3 +1,7 @@
+## 1.0.3
+
+* Implemented DiScopeRoot
+
 ## 1.0.2
 
 * createModule in DiScopeBuilder made optional for default access to parent scope
