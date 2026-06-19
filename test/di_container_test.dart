@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:take_it/src/di_container/di_container.dart';
+import 'package:scoped_di/src/di_container/di_container.dart';
 
 void main() {
   group('DiContainer', () {

@@ -6,7 +6,7 @@ import 'package:example/di/red_di_module.dart';
 import 'package:example/features/color/color_widget.dart';
 import 'package:example/features/pixel/pixel_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:take_it/take_it.dart';
+import 'package:scoped_di/scoped_di.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         initializationPlaceholder: Center(child: CircularProgressIndicator()),
         builder: (context, scope) {
           return MaterialApp(
-            title: 'take_it Demo',
+            title: 'scoped_di Demo',
             theme: ThemeData(
               primarySwatch: Colors.blue,
             ),
@@ -39,7 +39,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("take_it Demo"),
+        title: const Text("scoped_di Demo"),
       ),
       body: Center(
         child: Column(

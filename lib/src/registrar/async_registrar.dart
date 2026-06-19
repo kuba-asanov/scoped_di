@@ -1,4 +1,4 @@
-import 'package:take_it/src/registrar/sync_registrar.dart';
+import 'package:scoped_di/src/registrar/sync_registrar.dart';
 
 /// An abstract interface for registering asynchronous instances
 /// in a scope, extending the capabilities of [SyncRegistrar]

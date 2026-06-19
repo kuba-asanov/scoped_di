@@ -1,5 +1,5 @@
 // ignore_for_file: avoid_annotating_with_dynamic
-import 'package:take_it/take_it.dart';
+import 'package:scoped_di/scoped_di.dart';
 
 sealed class Entity<T> {
   T getObject([dynamic param]);

@@ -139,6 +139,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.9.1"
+  scoped_di:
+    dependency: "direct main"
+    description:
+      path: ".."
+      relative: true
+    source: path
+    version: "2.0.0"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -176,13 +183,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.4.1"
-  take_it:
-    dependency: "direct main"
-    description:
-      path: ".."
-      relative: true
-    source: path
-    version: "1.0.3"
   term_glyph:
     dependency: transitive
     description:

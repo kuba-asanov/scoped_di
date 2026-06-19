@@ -1,5 +1,5 @@
 import 'package:example/features/pixel/pixel_state_manager.dart';
-import 'package:take_it/take_it.dart';
+import 'package:scoped_di/scoped_di.dart';
 
 class PixelDiModule extends DiModule {
   @override

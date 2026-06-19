@@ -1,6 +1,6 @@
 import 'package:example/features/pixel/value_storages.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:take_it/take_it.dart';
+import 'package:scoped_di/scoped_di.dart';
 
 class CoreDiModule extends DiModuleAsync {
   @override

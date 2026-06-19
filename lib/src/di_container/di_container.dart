@@ -1,8 +1,8 @@
 // ignore_for_file: avoid_annotating_with_dynamic
 import 'dart:async';
 
-import 'package:take_it/src/di_container/entity.dart';
-import 'package:take_it/take_it.dart';
+import 'package:scoped_di/src/di_container/entity.dart';
+import 'package:scoped_di/scoped_di.dart';
 
 class DiContainer implements SyncRegistrar, AsyncRegistrar {
   DiContainer();

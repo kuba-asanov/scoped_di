@@ -4,9 +4,9 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:take_it/src/di_container/di_container.dart';
-import 'package:take_it/src/di_module/empty_di_module.dart';
-import 'package:take_it/take_it.dart';
+import 'package:scoped_di/src/di_container/di_container.dart';
+import 'package:scoped_di/src/di_module/empty_di_module.dart';
+import 'package:scoped_di/scoped_di.dart';
 
 part '../di_scope_builder.dart';
 

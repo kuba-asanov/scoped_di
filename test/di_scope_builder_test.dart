@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:take_it/src/di_module/base_di_module.dart';
-import 'package:take_it/src/registrar/sync_registrar.dart';
+import 'package:scoped_di/src/di_module/base_di_module.dart';
+import 'package:scoped_di/src/registrar/sync_registrar.dart';
 
 int count = 0;
 

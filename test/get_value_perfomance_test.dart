@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
-import 'package:take_it/src/di_module/base_di_module.dart';
-import 'package:take_it/src/registrar/sync_registrar.dart';
+import 'package:scoped_di/src/di_module/base_di_module.dart';
+import 'package:scoped_di/src/registrar/sync_registrar.dart';
 
 void main() {
   Future<void> runComparisonTestFor(
@@ -30,12 +30,12 @@ void main() {
         sw.stop();
         final label = 'ComparisonTestFor containers:';
         log("$label $containerCount scopeCount: $scopeCount");
-        log('take_it 1: ${sw.elapsedMicroseconds} µs');
+        log('scoped_di 1: ${sw.elapsedMicroseconds} µs');
         final sw2 = Stopwatch()..start();
         // ignore: unused_local_variable
         final value2 = scope.get<_ValueClass2>().value;
         sw2.stop();
-        log('take_it 2: ${sw2.elapsedMicroseconds} µs');
+        log('scoped_di 2: ${sw2.elapsedMicroseconds} µs');
         return Text(value);
       },
     );

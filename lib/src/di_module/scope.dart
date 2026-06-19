@@ -1,6 +1,6 @@
 // ignore_for_file: avoid_annotating_with_dynamic
 
-/// An abstract interface for the take_it scope,
+/// An abstract interface for the scoped_di scope,
 /// which provides access to registered objects.
 abstract interface class Scope {
   /// Checks whether an object of the specified type [T] is registered

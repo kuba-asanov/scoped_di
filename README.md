@@ -1,9 +1,11 @@
-# take_it
+# scoped_di
 
 ![Logo](./logo.png)
 
-`take_it` is a **Scoped Service Locator** with **Constructor Injections** for Dart and Flutter. It helps you manage
+`scoped_di` is a **Scoped Service Locator** with **Constructor Injections** for Dart and Flutter. It helps you manage
 dependencies in your application in a clean, efficient, and testable manner.
+
+> **Fork of [take_it](https://pub.dev/packages/take_it)** — extended with module-level `dependencies`, async initialization fixes, and improved scope inheritance.
 
 ## Overview
 
@@ -13,26 +15,26 @@ application's dependencies while maintaining clean and modular architecture.
 
 ### Key Features:
 
-- 🛠️ **No Code Generation:** Unlike some dependency management solutions, take_it does not require code generation. It
+- 🛠️ **No Code Generation:** Unlike some dependency management solutions, scoped_di does not require code generation. It
   provides a straightforward API for dependency registration and retrieval, minimizing setup complexity and reducing
   build times.
-- ❤️ **Familiar API:** take_it offers a syntax and API similar to get_it, making it easy for users familiar with get_it
+- ❤️ **Familiar API:** scoped_di offers a syntax and API similar to get_it, making it easy for users familiar with get_it
   to adopt and integrate it into their projects. This ensures a smooth learning curve and compatibility with existing
   codebases.
 - 🔐 **Scoped Service Locator & Modular Configuration:** Dependencies are encapsulated within specialized modules,
   preventing global access to services and providing better control over their lifecycle. Each module manages only the
   dependencies it needs, avoiding the clutter of a globally accessible service locator. This method simplifies testing,
   maintenance, and scalability, keeping your codebase organized and manageable.
-- 🏗️ **Constructor Injections:** Instead of relying on the service locator throughout the codebase, take_it encourages
+- 🏗️ **Constructor Injections:** Instead of relying on the service locator throughout the codebase, scoped_di encourages
   injecting dependencies directly through constructors, promoting explicit and testable dependencies while still
   leveraging the ease of service registration.
 - 🧪 **Clean and Testable Code:** By avoiding global dependency access and focusing on constructor-based injection,
-  take_it makes it easy to mock dependencies and write unit tests, while also keeping the architecture transparent and
+  scoped_di makes it easy to mock dependencies and write unit tests, while also keeping the architecture transparent and
   maintainable.
 - 🚀 **Performance Optimization:** The library’s design ensures minimal overhead and fast dependency resolution,
   validated by performance tests included within the package.
 
-### When to Use `take_it`:
+### When to Use `scoped_di`:
 
 - **Modular Applications**: Ideal for larger projects where you want clear separation of concerns and modular
   architecture.
@@ -41,22 +43,22 @@ application's dependencies while maintaining clean and modular architecture.
 
 ## Installation
 
-Add `take_it` to your project's dependencies in `pubspec.yaml`:
+Add `scoped_di` to your project's dependencies in `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  take_it: ^1.0.0
+  scoped_di: ^1.0.0
 ```
 
 ## Getting started
 
-To start using take_it, define your dependencies within a DiModule, which is a container for services, ensuring that
+To start using scoped_di, define your dependencies within a DiModule, which is a container for services, ensuring that
 dependencies are isolated to a particular module or scope.
 
 ### Example: Registering Dependencies in a DiModule
 
 ```dart
-import 'package:take_it/take_it.dart';
+import 'package:scoped_di/scoped_di.dart';
 
 class ExampleDiModule extends DiModule {
   @override
@@ -203,13 +205,13 @@ Dependencies are disposed automatically when the main module is disposed.
 
 ### Scoped Hierarchies
 
-One of the key features of take_it is its ability to create scoped hierarchies of services. For example, you can define
+One of the key features of scoped_di is its ability to create scoped hierarchies of services. For example, you can define
 different modules for different parts of your application, which are isolated from each other. This is particularly
 useful in large applications, ensuring that services are only accessible in specific parts of your app.
 
 ### Lifecycle Management
 
-With take_it, the lifecycle of dependencies is tied to the scope in which they are registered. Dependencies are
+With scoped_di, the lifecycle of dependencies is tied to the scope in which they are registered. Dependencies are
 initialized when the scope is created and disposed of when the scope is destroyed, ensuring efficient memory management.
 
 ## License
